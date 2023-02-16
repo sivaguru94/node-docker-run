@@ -1,7 +1,7 @@
 const readline = require('readline');
 const { spawn } = require("child_process");
 const fs = require('fs');
-const { QUERY, TARGET_FOLDER, INVALID_OPTION, INFO, EXIT_INFO, EXECUTEING_DOCKER_FILES } = require('./constants.js');
+const { QUERY, TARGET_FOLDER, INVALID_OPTION, INFO, EXIT_INFO, EXECUTEING_DOCKER_FILES, TASK_INFO } = require('./constants.js');
 
 const getDockerComposeList = (folder) => {
     const dockerComposeFilesList = [];
@@ -46,6 +46,7 @@ async function main() {
         detached: true,
         stdio: 'inherit'
     });
+    console.log(TASK_INFO + '\n' + EXIT_INFO);
     dockerComposeSpwan.unref();
 }
 
